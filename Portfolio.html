@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdul Kaish | Data Science Portfolio</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #0a0c10;
+            color: #eef2ff;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* header */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #1f2a3a;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-weight: 600;
+            font-size: 1.5rem;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #a3c6ff, #4f8eff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .nav-links a {
+            margin-left: 32px;
+            text-decoration: none;
+            color: #b9c7d9;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #5f9eff;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(105deg, #2b5fcf, #1e4ab3);
+            color: #ffffff;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-weight: 500;
+            text-decoration: none;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: #5f9eff;
+            border: 1.5px solid #3b6fdf;
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(59, 111, 223, 0.12);
+            border-color: #7daeff;
+            color: #a3c6ff;
+        }
+
+        .btn:hover {
+            background: linear-gradient(105deg, #1e4ab3, #103a7a);
+            transform: translateY(-1px);
+        }
+
+        section {
+            padding: 64px 0;
+            border-bottom: 1px solid #1e293b;
+        }
+
+        section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 32px;
+            letter-spacing: -0.02em;
+            color: #f1f5f9;
+            border-left: 4px solid #3b82f6;
+            padding-left: 20px;
+        }
+
+        /* --- HERO with PROFILE PICTURE SPACE --- */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 32px;
+        }
+
+        .hero-content {
+            flex: 1 1 350px;
+        }
+
+        .hero-content .badge {
+            background: rgba(59, 130, 246, 0.2);
+            color: #8bbaff;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 16px;
+            backdrop-filter: blur(2px);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.2;
+            background: linear-gradient(to right, #f0f9ff, #b9d3ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 8px;
+        }
+
+        .hero-content h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #b9c7dd;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            color: #cbd5e6;
+            max-width: 500px;
+            margin-bottom: 28px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+
+        .social-links a {
+            color: #94a3b8;
+            font-size: 1.5rem;
+            margin-right: 20px;
+            transition: color 0.2s;
+        }
+
+        .social-links a:hover {
+            color: #5f9eff;
+        }
+
+        /* Profile image placeholder - dark themed */
+        .profile-image-container {
+            flex: 0 0 260px;
+            text-align: center;
+        }
+        .profile-placeholder {
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            background: linear-gradient(145deg, #1a232f, #0f141c);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            box-shadow: 0 20px 35px rgba(0,0,0,0.5);
+            border: 2px solid #2d3b4e;
+        }
+        .profile-placeholder i {
+            font-size: 5rem;
+            color: #8ba4ca;
+            margin-bottom: 8px;
+        }
+        .profile-placeholder p {
+            background: rgba(0,0,0,0.5);
+            padding: 4px 12px;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            color: #bfd6ff;
+            font-weight: 500;
+        }
+
+        /* Skills grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 24px;
+        }
+        .skill-category {
+            background-color: #11161f;
+            padding: 24px 20px;
+            border-radius: 24px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            border: 1px solid #232e3c;
+            transition: all 0.2s;
+        }
+        .skill-category:hover {
+            border-color: #3b6fdf;
+        }
+        .skill-category h3 {
+            font-size: 1.2rem;
+            margin-bottom: 18px;
+            color: #d6e6ff;
+            border-left: 4px solid #3b82f6;
+            padding-left: 12px;
+        }
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .skill-tag {
+            background-color: #1e2a3a;
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #cbdffc;
+            transition: all 0.2s;
+        }
+        .skill-tag:hover {
+            background-color: #2b5fcf;
+            color: white;
+        }
+
+        /* PROJECT CARDS — dark glass style */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 28px;
+        }
+        .project-card {
+            background: #10161f;
+            border-radius: 28px;
+            padding: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            border: 1px solid #26323f;
+            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 30px rgba(0,0,0,0.5);
+            border-color: #3b6fdf;
+        }
+
+        /* project image placeholder */
+        .project-img-placeholder {
+            width: 100%;
+            height: 160px;
+            background: #0b1018;
+            border-radius: 20px;
+            margin-bottom: 18px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #859dbf;
+            border: 1px solid #2b3a4a;
+        }
+        .project-img-placeholder i {
+            font-size: 2.5rem;
+            color: #4c7bc2;
+            margin-bottom: 6px;
+        }
+        .project-img-placeholder span {
+            font-size: 0.8rem;
+            background: #1b2533;
+            padding: 2px 12px;
+            border-radius: 40px;
+            font-weight: 500;
+            color: #b4ceff;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 8px 0 10px;
+            color: #eef4ff;
+        }
+        .project-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 14px;
+            margin: 8px 0 12px;
+            font-size: 0.9rem;
+            color: #9aaec9;
+        }
+        .project-meta i {
+            color: #5f9eff;
+            width: 18px;
+            margin-right: 4px;
+        }
+        .problem {
+            font-weight: 500;
+            margin: 10px 0 6px;
+            color: #cfe3ff;
+        }
+        .dataset, .approach, .tools, .results {
+            font-size: 0.95rem;
+            margin-bottom: 6px;
+        }
+        .tools span {
+            background: #1e2c3c;
+            padding: 3px 10px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin: 3px 4px 3px 0;
+            color: #bdd4ff;
+        }
+        .results-highlight {
+            background: #0c1b1f;
+            color: #86efac;
+            padding: 8px 12px;
+            border-radius: 14px;
+            font-weight: 500;
+            margin-top: 10px;
+            border-left: 3px solid #22c55e;
+            font-size: 0.9rem;
+        }
+
+        /* certification & achievement cards with icons */
+        .certs-achievements {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+        @media (max-width:700px){ .certs-achievements { grid-template-columns:1fr; } }
+        .cert-item, .achievement-item {
+            background: #10161f;
+            border-radius: 24px;
+            padding: 20px;
+            border: 1px solid #263544;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+            transition: 0.2s;
+        }
+        .cert-item:hover, .achievement-item:hover {
+            border-color: #3b6fdf;
+        }
+        .cert-item i, .achievement-item i {
+            font-size: 2rem;
+            color: #5f9eff;
+        }
+
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 20px;
+        }
+        .edu-card {
+            background: #10161f;
+            border-radius: 24px;
+            padding: 24px;
+            border: 1px solid #263544;
+            transition: 0.2s;
+        }
+        .edu-card:hover {
+            border-color: #3b6fdf;
+        }
+        .edu-card h3 {
+            color: #d6e6ff;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+        .edu-card .institution {
+            color: #7b9eff;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        .edu-card .detail {
+            color: #9aaec9;
+            font-size: 0.95rem;
+        }
+
+        /* github section */
+        .github-section {
+            background: #0f151f;
+            border-radius: 32px;
+            padding: 36px;
+            border: 1px solid #253141;
+            text-align: center;
+        }
+        .github-calendar-placeholder {
+            background: #090e14;
+            padding: 24px;
+            border-radius: 24px;
+            margin: 20px 0 10px;
+            border: 1px solid #263f5e;
+            color: #9bb5df;
+        }
+
+        /* resume section */
+        .resume-section {
+            background: linear-gradient(135deg, #0e1723, #0a111b);
+            border-radius: 32px;
+            padding: 40px;
+            text-align: center;
+            border: 1px solid #263b50;
+        }
+        .resume-points {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
+            margin: 28px 0 16px;
+        }
+        .resume-points span {
+            background: #1e293b;
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: 500;
+            color: #c0dbff;
+        }
+
+        .contact-flex {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .contact-info i {
+            width: 28px;
+            color: #5f9eff;
+            font-size: 1.2rem;
+        }
+        .contact-info p {
+            margin: 12px 0;
+            color: #cbd5e6;
+        }
+        .contact-flex form input, 
+        .contact-flex form textarea {
+            background-color: #111a24;
+            border: 1px solid #2b4058;
+            color: #f0f4fa;
+        }
+        .contact-flex form input:focus,
+        .contact-flex form textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+        }
+
+        footer {
+            text-align: center;
+            padding: 32px 0;
+            color: #7c8ba0;
+            font-size: 0.9rem;
+            border-top: 1px solid #1e293b;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 700px) {
+            .navbar {
+                flex-direction: column;
+                gap: 16px;
+            }
+            .nav-links a {
+                margin: 0 12px;
+            }
+            .profile-image-container {
+                flex-basis: 100%;
+            }
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+            background: #0f1219;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2b4058;
+            border-radius: 10px;
+        }
+        .training-card {
+            background: #10161f;
+            border-radius: 24px;
+            padding: 24px;
+            border: 1px solid #263544;
+            margin-top: 20px;
+        }
+        .training-card h3 {
+            color: #d6e6ff;
+            margin-bottom: 12px;
+        }
+        .profile-img {
+        width: 240px;
+        height: 240px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #3b6fdf;
+        box-shadow: 0 20px 35px rgba(0,0,0,0.5);
+    }
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+        <!-- Navbar -->
+        <nav class="navbar">
+            <div class="logo">Abdul Kaish</div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#education">Education</a>
+                <a href="#certifications">Certifications</a>
+                <a href="#resume">Resume</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+
+        <!-- HERO with profile picture space -->
+        <section id="hero">
+            <div class="hero">
+                <div class="hero-content">
+                    <span class="badge">Data Science | ML | AI Enthusiast</span>
+                    <h1>Abdul Kaish</h1>
+                    <h3>B.Tech CSE – Data Science, LPU | CGPA: 7.0</h3>
+                    <p>Building scalable ML systems that drive impact. Strong foundation in Python, analytics, and problem solving. Aspiring data scientist with expertise in fraud detection, regression models, and end-to-end ML pipelines.</p>
+                    <div class="hero-buttons">
+                        <a href="Abdul_Kaish_Resume.pdf" class="btn" download>📄 Download Resume (PDF)</a>
+                        <a href="#contact" class="btn-outline btn">Contact Me</a>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-kaggle"></i></a>
+                    </div>
+                </div>
+                <div class="profile-image-container">
+                    <img src="Ak.png" alt="Abdul Kaish" class="profile-img">
+                    <p style="margin-top: 12px; color: #859dbf; font-size:0.9rem;"><i class="fas fa-camera"></i> Replace with your professional headshot</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT with CV details -->
+        <section id="about">
+            <h2>About Me</h2>
+            <div style="background: #0f151f; border-radius: 30px; padding: 32px; border:1px solid #232f3f;">
+                <p style="font-size:1.2rem; margin-bottom: 20px;"><strong>B.Tech CSE – Data Science</strong>, Lovely Professional University (Since Aug'23) | <strong>CGPA: 7.0</strong></p>
+                <p style="margin-bottom: 16px;">Core interests: <strong>Machine Learning, Deep Learning, Fraud Detection, Predictive Analytics</strong>. Career goal: Aspiring Data Scientist focused on building scalable ML systems. Strengths: problem solving, analytical thinking, Python expertise, and end-to-end project execution.</p>
+                <p style="color:#7eacff;">🔹 NPTEL Deep Learning: Secured Global Rank Under 200th 🔹</p>
+                <p style="margin-top: 12px;">🏆 Selected for 2nd Round in Hack with Vertos1.0 among 1k+ participants</p>
+            </div>
+        </section>
+
+        <!-- SKILLS - updated from CV -->
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category"><h3>💻 Languages</h3><div class="skill-items"><span class="skill-tag">C++</span><span class="skill-tag">JavaScript</span><span class="skill-tag">C</span><span class="skill-tag">Java</span><span class="skill-tag">Python</span><span class="skill-tag">R</span></div></div>
+                <div class="skill-category"><h3>🌐 Frameworks</h3><div class="skill-items"><span class="skill-tag">HTML/CSS</span><span class="skill-tag">Bootstrap</span><span class="skill-tag">NodeJS</span><span class="skill-tag">React</span></div></div>
+                <div class="skill-category"><h3>🗄️ Databases & Tools</h3><div class="skill-items"><span class="skill-tag">MySQL</span><span class="skill-tag">MongoDB</span><span class="skill-tag">Power BI</span><span class="skill-tag">Excel</span><span class="skill-tag">Git/GitHub</span></div></div>
+                <div class="skill-category"><h3>📊 Data Science & ML</h3><div class="skill-items"><span class="skill-tag">Pandas</span><span class="skill-tag">NumPy</span><span class="skill-tag">Matplotlib</span><span class="skill-tag">Seaborn</span><span class="skill-tag">Scikit-learn</span><span class="skill-tag">XGBoost</span><span class="skill-tag">Imbalanced-Learn</span><span class="skill-tag">SMOTE</span></div></div>
+                <div class="skill-category"><h3>🤝 Soft Skills</h3><div class="skill-items"><span class="skill-tag">Problem-Solving</span><span class="skill-tag">Team Player</span><span class="skill-tag">Time Management</span><span class="skill-tag">Adaptability</span></div></div>
+            </div>
+        </section>
+
+        <!-- TRAINING Section from CV -->
+        <section id="training">
+            <h2>Training & Internship</h2>
+            <div class="training-card">
+                <h3><i class="fas fa-database"></i> Summer Training Internship - PL/SQL</h3>
+                <p style="color: #9aaec9; margin-bottom: 12px;">Oracle's programming extension of SQL with variables, loops, conditions, Functions, Procedures, Triggers, and error handling.</p>
+                <p><strong>Tech Stack:</strong> Oracle Database 19c, PL/SQL, Oracle APEX</p>
+            </div>
+        </section>
+
+        <!-- PROJECTS section - Updated with CV details -->
+        <section id="projects">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <!-- Credit Card Fraud Detection - from CV -->
+                <div class="project-card">
+                    <div class="project-img-placeholder">
+                        <i class="fas fa-credit-card"></i>
+                        <span>fraud-detection.jpg</span>
+                    </div>
+                    <div class="project-title">💳 Credit Card Fraud Detection</div>
+                    <div class="project-meta"><span><i class="fas fa-calendar"></i> Jun'25 - Jul'25</span><span><i class="fab fa-github"></i> GitHub | Live</span></div>
+                    <div class="problem"><i class="fas fa-exclamation-triangle"></i> Highly imbalanced dataset (only 0.17% fraud)</div>
+                    <div class="approach"><strong>Approach:</strong> SMOTE, class weighting, anomaly detection models. Random Forest with class weights achieved high recall.</div>
+                    <div class="tools"><span>Python</span><span>Pandas</span><span>NumPy</span><span>Matplotlib</span><span>Seaborn</span><span>Scikit-learn</span><span>XGBoost</span><span>Imbalanced-Learn (SMOTE)</span></div>
+                    <div class="results-highlight">✅ Random Forest with class weights - High recall · MIT App Inventor integration</div>
+                </div>
+                <!-- House Price Prediction - from CV -->
+                <div class="project-card">
+                    <div class="project-img-placeholder">
+                        <i class="fas fa-home"></i>
+                        <span>house-price.jpg</span>
+                    </div>
+                    <div class="project-title">🏠 House Price Prediction</div>
+                    <div class="project-meta"><span><i class="fas fa-calendar"></i> Sep'25 - Dec'25</span><span><i class="fab fa-github"></i> GitHub | Live</span></div>
+                    <div class="problem">Predict selling price based on area, rooms, location, materials, etc.</div>
+                    <div class="approach">ML pipeline with EDA, preprocessing, regression models, feature engineering, hyperparameter tuning</div>
+                    <div class="tools"><span>Python</span><span>Pandas</span><span>NumPy</span><span>Matplotlib</span><span>Seaborn</span><span>Scikit-learn</span><span>XGBoost</span><span>OneHotEncoder</span><span>Cross-Validation</span></div>
+                    <div class="results-highlight">✅ Optimized regression model · High accuracy after tuning</div>
+                </div>
+                <!-- Additional placeholder project to maintain layout -->
+                <div class="project-card">
+                    <div class="project-img-placeholder">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>analytics-dash.jpg</span>
+                    </div>
+                    <div class="project-title">📊 Power BI Analytics Dashboard</div>
+                    <div class="project-meta"><span><i class="fas fa-database"></i> Business Intelligence</span><span>Power BI</span></div>
+                    <div class="problem">Interactive dashboards for business insights.</div>
+                    <div class="approach">Data modeling, DAX, interactive visualizations</div>
+                    <div class="tools"><span>Power BI</span><span>Excel</span><span>SQL</span></div>
+                    <div class="results-highlight">✅ Actionable insights · Real-time dashboards</div>
+                </div>
+            </div>
+            <p style="margin-top:28px; text-align:center; color:#7b9eff;">⭐ Replace placeholder images with project screenshots, architecture diagrams, or demo visuals.</p>
+        </section>
+
+        <!-- EDUCATION Section - from CV -->
+        <section id="education">
+            <h2>Education</h2>
+            <div class="education-grid">
+                <div class="edu-card">
+                    <h3>🎓 Bachelor of Technology</h3>
+                    <div class="institution">Lovely Professional University, Punjab</div>
+                    <div class="detail">Computer Science & Engineering - Data Science</div>
+                    <div class="detail">Since Aug'23 | CGPA: 7.0</div>
+                </div>
+                <div class="edu-card">
+                    <h3>📖 Intermediate (12th)</h3>
+                    <div class="institution">J.P Intermediate College, Gorakhpur</div>
+                    <div class="detail">Apr'20 - Mar'22 | Percentage: 73%</div>
+                </div>
+                <div class="edu-card">
+                    <h3>📚 Matriculation (10th)</h3>
+                    <div class="institution">J.P Children Academy, Gorakhpur</div>
+                    <div class="detail">Apr'18 - Mar'20 | Percentage: 83%</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications + Achievements from CV -->
+        <section id="certifications">
+            <h2>Certifications & Achievements</h2>
+            <div class="certs-achievements">
+                <div>
+                    <h3 style="margin-bottom:18px; color:#e2edff;">📜 Certifications</h3>
+                    <div class="cert-item"><i class="fab fa-free-code-camp"></i> <div><strong>Web Development</strong> – Free Code Camp</div></div>
+                    <div class="cert-item"><i class="fas fa-brain"></i> <div><strong>Deep Learning</strong> – NPTEL</div></div>
+                </div>
+                <div>
+                    <h3 style="margin-bottom:18px; color:#e2edff;">🏆 Achievements</h3>
+                    <div class="achievement-item"><i class="fas fa-globe"></i> <div><strong>Global Rank Under 200th</strong> – NPTEL Deep Learning Program</div></div>
+                    <div class="achievement-item"><i class="fas fa-code"></i> <div><strong>Selected for 2nd Round in Hackathon</strong> – Hack with Vertos1.0 (among 1k+ participants)</div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GitHub Integration -->
+        <section id="github">
+            <h2>GitHub Quality</h2>
+            <div class="github-section">
+                <i class="fab fa-github" style="font-size: 3rem; color: #ccdeff;"></i>
+                <h3 style="margin-top: 8px;">github.com/abdulkaish-ds</h3>
+                <div class="github-calendar-placeholder">
+                    <i class="fas fa-calendar-alt"></i>
+                    <p>Active contributions · Projects include Credit Card Fraud Detection, House Price Prediction, and more</p>
+                    <div style="display: flex; justify-content: center; gap: 12px; margin-top: 12px;">
+                        <span class="skill-tag">📁 Fraud Detection</span>
+                        <span class="skill-tag">🏠 House Price</span>
+                        <span class="skill-tag">📊 Power BI</span>
+                    </div>
+                </div>
+                <p style="color:#b7cdff;">✅ Clean README, structured ML pipelines, and thorough documentation.</p>
+                <a href="#" class="btn-outline btn">Browse repos</a>
+            </div>
+        </section>
+
+        <!-- Resume Section -->
+        <section id="resume">
+            <div class="resume-section">
+                <h2 style="border-left: none; padding-left: 0; color:#f0f4ff;">Resume (1‑page, ATS‑friendly)</h2>
+                <div class="resume-points">
+                    <span>📌 Credit Card Fraud: High recall with Random Forest + SMOTE</span>
+                    <span>📌 House Price Prediction: XGBoost + Hyperparameter Tuning</span>
+                    <span>📌 NPTEL Deep Learning: Global Rank Under 200</span>
+                    <span>📌 PL/SQL Internship: Oracle APEX</span>
+                </div>
+                <a href="#" class="btn" download><i class="fas fa-download"></i> Download 1‑page resume (PDF)</a>
+                <p style="margin-top:16px; color:#a1bbdd;"><i class="fas fa-file-image"></i> Based on Abdul Kaish's official CV</p>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact">
+            <h2>Contact</h2>
+            <div class="contact-flex">
+                <div class="contact-info">
+                    <p><i class="fas fa-envelope"></i> abdul.kaish@ds.lpu.in</p>
+                    <p><i class="fas fa-phone-alt"></i> +91 98765 43210</p>
+                    <p><i class="fab fa-linkedin"></i> linkedin.com/in/abdul-kaish-ds</p>
+                    <p><i class="fab fa-github"></i> github.com/abdulkaish-ds</p>
+                </div>
+                <div style="min-width:250px;">
+                    <form id="simpleContact" onsubmit="event.preventDefault(); alert('📩 Demo mode — integrate your own backend for dark portfolio.');">
+                        <input type="email" placeholder="Your email" style="width:100%; padding:12px; border-radius:30px; border:1px solid #2f4868; background:#0f1822; color:#ecf3ff; margin-bottom:12px;">
+                        <textarea placeholder="Message" rows="2" style="width:100%; padding:12px; border-radius:20px; border:1px solid #2f4868; background:#0f1822; color:#ecf3ff;"></textarea>
+                        <button type="submit" class="btn" style="width:100%; margin-top:10px;">Send</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            © 2025 Abdul Kaish – Dark Theme Portfolio | Data Science Enthusiast | Based on official CV
+        </footer>
+    </div>
+
+    <script>
+        // Smooth scroll for nav
+        document.querySelectorAll('.nav-links a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetEl = document.querySelector(targetId);
+                if (targetEl) targetEl.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+        // Download simulation
+        document.querySelectorAll('a[download]').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                alert('📄 Demo: Replace with actual PDF file from your CV.');
+            });
+        });
+    </script>
+</body>
+</html>
